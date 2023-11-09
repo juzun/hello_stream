@@ -2,13 +2,14 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.header('st.selectbox')
+st.header('st.multiselect')
 
-option = st.selectbox(
-     'What is your favorite color?',
-     ('Blue', 'Red', 'Green'))
+options = st.multiselect(
+     'What are your favorite colors',
+     ['Green', 'Yellow', 'Red', 'Blue'],
+     ['Yellow', 'Red'])
 
-st.write('Your favorite color is ', option)
+st.write('You selected:', options)
 
 
 # import plotly.graph_objects as po
