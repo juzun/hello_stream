@@ -4,11 +4,14 @@ import numpy as np
 import plotly.express as px
 
 
-st.latex(r'''
-     a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
-     \sum_{k=0}^{n-1} ar^k =
-     a \left(\frac{1-r^{n}}{1-r}\right)
-     ''')
+uploaded_file = st.file_uploader("Vyber fajl")
+
+if uploaded_file is not None:
+  xls = pd.read_excel(uploaded_file, parse_dates=['date'], usecols=['date', 'price'])
+  st.write(xls)
+else:
+  st.info('Nics nenačet.')
+
 
 chart_data = pd.DataFrame(
      np.random.randn(20, 3),
