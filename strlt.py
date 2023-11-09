@@ -10,6 +10,6 @@ chart_data = pd.DataFrame(
      columns=['a', 'b', 'c'])
 
 fig = po.Figure()
-fig.add_trace(po.Scatter(chart_data))
+fig.add_trace(po.Scatter(x=chart_data.index, y=chart_data['a']))
 
-st.plotly_chart(chart_data)
+st.plotly_chart(fig, use_container_width=True)
