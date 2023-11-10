@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
+import time
 
 
 st.set_page_config(layout="wide")
@@ -33,11 +34,20 @@ with col2:
   else:
     st.write('👈 Please choose an **emoji**!')
 
+
 with col3:
   if user_food != '':
     st.write(f'🍴 **{user_food}** is your favorite **food**!')
   else:
     st.write('👈 Please choose your favorite **food**!')
+  
+  my_bar = st.progress(0)
+  for percent_complete in range(100):
+      time.sleep(0.05)
+      my_bar.progress(percent_complete + 1)
+
+  st.balloons()
+
 
 
 
@@ -48,7 +58,6 @@ with col3:
 #   st.write(xls)
 # else:
 #   st.info('Nics nenačet.')
-
 
 
 
