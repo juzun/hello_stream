@@ -6,20 +6,7 @@ from time import time
 
 
 
-def lbs_to_kg():
-  st.session_state.kg = st.session_state.lbs/2.2046
-def kg_to_lbs():
-  st.session_state.lbs = st.session_state.kg*2.2046
 
-st.header('Input')
-col1, spacer, col2 = st.columns([2,1,2])
-with col1:
-  pounds = st.number_input("Pounds:", key = "lbs", on_change = lbs_to_kg)
-with col2:
-  kilogram = st.number_input("Kilograms:", key = "klgr", on_change = kg_to_lbs)
-
-st.header('Output')
-st.write("st.session_state object:", st.session_state)  
 
 
 # st.set_page_config(layout="wide")
@@ -96,20 +83,20 @@ st.write("st.session_state object:", st.session_state)
 
 
 
-# uploaded_file = st.file_uploader("Vyber fajl")
+uploaded_file = st.file_uploader("Vyber fajl")
 
-# if uploaded_file is not None:
-#   xls = pd.read_excel(uploaded_file, parse_dates=['date'], usecols=['date', 'price'])
-#   st.write(xls)
-# else:
-#   st.info('Nics nenačet.')
+if uploaded_file is not None:
+  xls = pd.read_excel(uploaded_file, parse_dates=['date'], usecols=['date', 'price'])
+  st.write(xls)
+else:
+  st.info('Nics nenačet.')
 
 
 
-# chart_data = pd.DataFrame(
-#      np.random.randn(20, 3),
-#      columns=['a', 'b', 'c'])
+chart_data = pd.DataFrame(
+     np.random.randn(20, 3),
+     columns=['a', 'b', 'c'])
 
-# fig2 = px.line(chart_data)
+fig2 = px.line(chart_data)
 
-# st.plotly_chart(fig2)
+st.plotly_chart(fig2)
