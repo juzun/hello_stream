@@ -16,7 +16,7 @@ col1, spacer, col2 = st.columns([2,1,2])
 with col1:
   pounds = st.number_input("Pounds:", key = "lbs", on_change = lbs_to_kg)
 with col2:
-  kilogram = st.number_input("Kilograms:", key = "kg", on_change = kg_to_lbs)
+  kilogram = st.number_input("Kilograms:", key = "klgr", on_change = kg_to_lbs)
 
 st.header('Output')
 st.write("st.session_state object:", st.session_state)  
